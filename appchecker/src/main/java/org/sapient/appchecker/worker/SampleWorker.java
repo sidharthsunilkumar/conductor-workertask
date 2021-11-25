@@ -22,16 +22,9 @@ public class SampleWorker implements Worker {
 	public TaskResult execute(Task task) {
 		System.out.println(task.getTaskDefName() + "Worker Called");
 		
-		if (task.getTaskDefName().equals("applicationcheck")) {
-			TaskResult result = checkApplication(task);
-			result.setStatus(Status.COMPLETED);
-			return result;
-		}
-		else{
-			TaskResult result = new TaskResult(task);
-			result.setStatus(Status.FAILED);
-			return result;
-		}
+		TaskResult result = checkApplication(task);
+		result.setStatus(Status.COMPLETED);
+		return result;
 		
 	}
 
